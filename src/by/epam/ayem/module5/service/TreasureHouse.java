@@ -1,4 +1,6 @@
-package by.epam.ayem.main;
+package by.epam.ayem.module5.service;
+
+import by.epam.ayem.module5.model.Treasure;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -68,14 +70,10 @@ public class TreasureHouse {
         }
     }
 
-    public void fillTreasure() {
-        fillTreasureRandom(new Treasure());
-    }
-
-    private void fillTreasureRandom(Treasure treasure) {
+    public void fillTreasure(Treasure... treasure) {
         while (treasures.size() < 100) {
-            treasures.add(treasure);
-            fillTreasureRandom(new Treasure());
+            treasures.add(new Treasure());
+            fillTreasure(new Treasure());
         }
     }
 }

@@ -1,4 +1,4 @@
-package by.epam.ayem.main;
+package by.epam.ayem.module5.service;
 
 /*Задача 4.
 Создать консольное приложение, удовлетворяющее следующим требованиям:
