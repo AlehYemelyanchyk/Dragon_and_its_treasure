@@ -17,32 +17,35 @@ package by.epam.ayem.module5.model;
 на заданную сумму.*/
 
 import java.io.Serializable;
-import java.util.Random;
 
 public class Treasure implements Serializable {
 
-    private final TreasureTypes treasureTypes;
-    private final double weight;
-    private final double treasureCost;
+    private TreasureTypes treasureTypes;
+    private double weight;
+    private double treasureCost;
 
-    private static Random random = new Random();
+    public TreasureTypes getTreasureTypes() {
+        return treasureTypes;
+    }
 
-    public Treasure() {
-        this.treasureTypes = TreasureTypes.getRandom();
-        this.weight = random.nextDouble() * 10;
-        this.treasureCost = random.nextDouble() * weight;
+    public void setTreasureTypes(TreasureTypes treasureTypes) {
+        this.treasureTypes = treasureTypes;
+    }
+
+    public double getWeight() {
+        return weight;
+    }
+
+    public void setWeight(double weight) {
+        this.weight = weight;
     }
 
     public double getTreasureCost() {
         return treasureCost;
     }
 
-    public TreasureTypes getTreasureTypes() {
-        return treasureTypes;
-    }
-
-    public double getWeight() {
-        return weight;
+    public void setTreasureCost(double treasureCost) {
+        this.treasureCost = treasureCost;
     }
 
     @Override

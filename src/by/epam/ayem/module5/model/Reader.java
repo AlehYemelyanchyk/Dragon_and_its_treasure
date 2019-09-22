@@ -23,7 +23,7 @@ import java.util.logging.Logger;
 
 public class Reader {
 
-    final static Logger logger = Logger.getLogger("Reader.class");
+    private final static Logger LOGGER = Logger.getLogger("Reader.class");
 
     public List<Treasure> readObjectsFromFile(String fileName) {
         List<Treasure> treasures = new ArrayList<>();
@@ -33,11 +33,11 @@ public class Reader {
                 treasures.add(treasure);
             }
         } catch (EOFException e) {
-            logger.info("File has been ended");
+            LOGGER.info("File has been ended");
         } catch (ClassNotFoundException e) {
-            logger.info("Class not found");
+            LOGGER.info("Class not found");
         } catch (IOException e) {
-            logger.info("IOException");
+            LOGGER.info("IOException");
         }
         return treasures;
     }

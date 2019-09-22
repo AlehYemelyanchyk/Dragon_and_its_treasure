@@ -20,7 +20,6 @@ import java.util.List;
 public class TreasureHouse {
 
     private List<Treasure> treasures;
-    private final String fileName = "treasures.txt";
 
     public TreasureHouse() {
         treasures = new ArrayList<>();
@@ -32,9 +31,5 @@ public class TreasureHouse {
 
     public void setTreasures(List<Treasure> treasures) {
         this.treasures = treasures;
-    }
-
-    public String getFileName() {
-        return fileName;
     }
 }

@@ -22,15 +22,15 @@ import java.util.logging.Logger;
 
 public class Writer {
 
-    final static Logger logger = Logger.getLogger("Writer.class");
+    private final static Logger LOGGER = Logger.getLogger("Writer.class");
 
-    public void writeObjectsToFile(TreasureHouse treasureHouse) {
-        try (ObjectOutputStream out = new ObjectOutputStream(Files.newOutputStream(Paths.get(treasureHouse.getFileName())))) {
+    public void writeObjectsToFile(TreasureHouse treasureHouse, String fileName) {
+        try (ObjectOutputStream out = new ObjectOutputStream(Files.newOutputStream(Paths.get(fileName)))) {
             for (Treasure treasure : treasureHouse.getTreasures()) {
                 out.writeObject(treasure);
             }
         } catch (IOException e) {
-            logger.info("IOException");
+            LOGGER.info("IOException");
         }
     }
 }
