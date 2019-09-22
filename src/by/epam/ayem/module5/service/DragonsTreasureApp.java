@@ -14,6 +14,8 @@ package by.epam.ayem.module5.service;
 Реализовать возможность просмотра сокровищ, выбора самого дорогого по смоимости сокровища и выбора сокровищ
 на заданную сумму.*/
 
+import by.epam.ayem.module5.model.TreasureHouse;
+
 import java.util.Scanner;
 
 public class DragonsTreasureApp {
@@ -23,7 +25,8 @@ public class DragonsTreasureApp {
         Scanner scanner = new Scanner(System.in);
 
         TreasureHouse treasureHouse = new TreasureHouse();
-        treasureHouse.fillTreasure();
+        TreasureHouseService treasureHouseService = new TreasureHouseService();
+        treasureHouseService.fillTreasure(treasureHouse);
 
         boolean quit = false;
 
@@ -42,10 +45,10 @@ public class DragonsTreasureApp {
 
             switch (choice) {
                 case 1:
-                    treasureHouse.showTreasures();
+                    treasureHouseService.readTreasures(treasureHouse);
                     break;
                 case 2:
-                    treasureHouse.showMostExpensiveTreasure();
+                    treasureHouseService.showMostExpensiveTreasure(treasureHouse);
                     break;
                 case 3:
                     System.out.println("Please, enter the worth of the treasures: ");
@@ -56,7 +59,7 @@ public class DragonsTreasureApp {
                     }
 
                     double worth = scanner.nextDouble();
-                    treasureHouse.getTreasuresAmountingTo(worth);
+                    treasureHouseService.getTreasuresAmountingTo(treasureHouse, worth);
                     break;
                 case 0:
                     quit = true;

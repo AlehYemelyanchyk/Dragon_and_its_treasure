@@ -1,4 +1,7 @@
-package by.epam.ayem.module5;
+package by.epam.ayem.module5.model;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /*Задача 4.
 Создать консольное приложение, удовлетворяющее следующим требованиям:
@@ -14,10 +17,24 @@ package by.epam.ayem.module5;
 Реализовать возможность просмотра сокровищ, выбора самого дорогого по смоимости сокровища и выбора сокровищ
 на заданную сумму.*/
 
-import by.epam.ayem.module5.service.DragonsTreasureApp;
+public class TreasureHouse {
 
-public class AppRunner {
-    public static void main(String[] args) {
-        new DragonsTreasureApp().run();
+    private List<Treasure> treasures;
+    private final String fileName = "treasures.txt";
+
+    public TreasureHouse() {
+        treasures = new ArrayList<>();
+    }
+
+    public List<Treasure> getTreasures() {
+        return treasures;
+    }
+
+    public void setTreasures(List<Treasure> treasures) {
+        this.treasures = treasures;
+    }
+
+    public String getFileName() {
+        return fileName;
     }
 }
