@@ -84,6 +84,7 @@ public class TreasureHouseService {
             treasureHouse.getTreasures().add(new Treasure());
             fillTreasure(treasureHouse, new Treasure());
         }
+        // I need this method invoke here to fill the treasure.txt file in the first place.
 //        writer.writeObjectsToFile(treasureHouse);
     }
 }
