@@ -20,13 +20,13 @@ import java.util.Scanner;
 
 public class DragonsTreasureApp {
 
+    private static Scanner scanner = new Scanner(System.in);
+    private static TreasureHouseService treasureHouseService = new TreasureHouseService();
+
     public void run() {
 
-        Scanner scanner = new Scanner(System.in);
-
         TreasureHouse treasureHouse = new TreasureHouse();
-        TreasureHouseService treasureHouseService = new TreasureHouseService();
-        treasureHouseService.fillTreasure(treasureHouse);
+        treasureHouseService.fillTreasureHouse(treasureHouse);
 
         boolean quit = false;
 
@@ -48,18 +48,10 @@ public class DragonsTreasureApp {
                     treasureHouseService.readTreasures(treasureHouse);
                     break;
                 case 2:
-                    treasureHouseService.showMostExpensiveTreasure(treasureHouse);
+                    treasureHouseService.findMostExpensiveTreasure(treasureHouse);
                     break;
                 case 3:
-                    System.out.println("Please, enter the worth of the treasures: ");
-
-                    while (!scanner.hasNextDouble()) {
-                        scanner.next();
-                        System.out.println("Please, use an number.");
-                    }
-
-                    double worth = scanner.nextDouble();
-                    treasureHouseService.getTreasuresAmountingTo(treasureHouse, worth);
+                    treasureHouseService.findTreasuresAmountingTo(treasureHouse);
                     break;
                 case 0:
                     quit = true;
