@@ -1,4 +1,4 @@
-package by.epam.ayem.module5;
+package by.epam.ayem.module5.model;
 
 /*Задача 4.
 Создать консольное приложение, удовлетворяющее следующим требованиям:
@@ -14,10 +14,31 @@ package by.epam.ayem.module5;
 Реализовать возможность просмотра сокровищ, выбора самого дорогого по смоимости сокровища и выбора сокровищ
 на заданную сумму.*/
 
-import by.epam.ayem.module5.service.DragonsTreasureApp;
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Logger;
 
-public class AppRunner {
-    public static void main(String[] args) {
-        new DragonsTreasureApp().run();
+public class Reader {
+
+    private final static Logger LOGGER = Logger.getLogger("Reader.class");
+
+    public List<Treasure> readObjectsFromFile(String fileName) {
+        List<Treasure> treasures = new ArrayList<>();
+        try (ObjectInputStream in = new ObjectInputStream(Files.newInputStream(Paths.get(fileName)))) {
+            while (true) {
+                Treasure treasure = (Treasure) in.readObject();
+                treasures.add(treasure);
+            }
+        } catch (EOFException e) {
+            LOGGER.info("File has been ended");
+        } catch (ClassNotFoundException e) {
+            LOGGER.info("Class not found");
+        } catch (IOException e) {
+            LOGGER.info("IOException");
+        }
+        return treasures;
     }
 }
